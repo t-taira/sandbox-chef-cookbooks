@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #config.vm.synced_folder "./", "/vagrant", mount_options: ['dmode=777', 'fmode=666']
 
   config.vm.provider :virtualbox do |vb|
-    vb.name = "marche"
+    vb.name = "sandbox"
   end
 
   config.omnibus.chef_version = :latest
@@ -23,7 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.berkshelf.enabled = true
 
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "sandbox"
+    chef.cookbooks_path = "cookbook"
     chef.roles_path = "roles"
     chef.add_role("local")
     chef.json = {
